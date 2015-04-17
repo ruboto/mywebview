@@ -7,4 +7,5 @@ gen
 local.properties
 tmp
 .*.un~
+*.keystore
 
