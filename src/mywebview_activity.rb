@@ -2,7 +2,7 @@
 require 'ruboto/widget'
 require 'jruby/core_ext'
 
-# java_import 'android.webkit.JavascriptInterface'
+java_import 'android.webkit.JavascriptInterface'
 
 require_relative 'jsi_java_custom.rb'
 
@@ -33,6 +33,7 @@ class MywebviewActivity
     @wv.add_javascript_interface JSIRuby.new.to_java,           "jsi_ruby_to_java"
     @wv.add_javascript_interface JSIRubySubJava.new.to_java,    "jsi_rubysubjava_to_java"
     @wv.add_javascript_interface JSIJavaCustom.new,             "jsi_javacustom"
+    @wv.add_javascript_interface JSIJavaCustom.new.to_java,     "jsi_javacustom_to_java"
 
     # Does not work...
     # .newInstance() causes java.lang.InstantiationException: class org.jruby.RubyObject has no zero argument constructor
@@ -54,13 +55,13 @@ class MywebviewActivity
 end
 
 class JSIRuby
-  # java_annotation :JavascriptInterface
+  java_annotation :JavascriptInterface
   java_signature "java.lang.String ok()"
   def ok ; "ok" ; end
 end
 
 class JSIRubySubJava < java::lang::Object
-  # java_annotation :JavascriptInterface
+  java_annotation :JavascriptInterface
   java_signature "java.lang.String ok()"
   def ok ; "ok" ; end
 end

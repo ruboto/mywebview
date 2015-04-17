@@ -18,3 +18,28 @@
 #-keepclassmembers class fqcn.of.javascript.interface.for.webview {
 #   public *;
 #}
+
+#-keepclassmembers class net.iqeo.mywebview.JSIRuby {
+#   public *;
+#}
+#
+#-keepclassmembers class net.iqeo.mywebview.JSIRubySubJava {
+#   public *;
+#}
+#
+#-keepclassmembers class net.iqeo.mywebview.JSIJavaCustom {
+#   public *;
+#}
+
+-keep class net.iqeo.mywebview.JSIRuby {
+*;
+}
+
+-keep class net.iqeo.mywebview.JSIRubySubJava {
+*;
+}
+
+-keep class net.iqeo.mywebview.JSIJavaCustom {
+*;
+}
+

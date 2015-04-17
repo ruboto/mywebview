@@ -1,3 +1,30 @@
 <html>
+
+<script type="text/javascript">
+function run() {
+  js_in = document.form1.input1.value
+  p_js_in = document.createElement("p")
+  p_js_in.appendChild( document.createTextNode( js_in ) )
+  document.getElementById("log").appendChild( p_js_in )
+  p_js_out = document.createElement("p")
+  p_js_out.appendChild( document.createTextNode( eval( js_in ) ) )
+  document.getElementById("log").appendChild( p_js_out )
+  document.getElementById("log").appendChild( document.createElement("hr") )
+}
+</script>
+
 <h1>Test</h1>
+
+<form name="form1">
+Enter Javascript
+<input type="text" name="input1">
+<input type="button" value="Run" onclick="run(); false">
+</form>
+
+<hr>
+
+<div id="log">
+</div>
+
 </html>
+
