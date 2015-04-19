@@ -1,8 +1,5 @@
-class JSIJavaCustom
-  # java_annotation :JavascriptInterface
-  java_signature "java.lang.String ok()"
+class JsiJavaCustom
   def ok
-    "ok"
+    'ok'
   end
 end
-

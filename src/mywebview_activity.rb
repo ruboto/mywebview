@@ -2,7 +2,7 @@
 require 'ruboto/widget'
 require 'jruby/core_ext'
 
-java_import 'android.webkit.JavascriptInterface'
+# java_import 'android.webkit.JavascriptInterface'
 
 require_relative 'jsi_java_custom.rb'
 
@@ -12,7 +12,7 @@ class MywebviewActivity
   
   def on_create(bundle)
     super
-    android::webkit::WebView.web_contents_debugging_enabled = true
+    # android::webkit::WebView.web_contents_debugging_enabled = true
     @wv = web_view id: 100
     @wv.settings.use_wide_view_port = true
     @wv.settings.load_with_overview_mode = true
@@ -32,8 +32,7 @@ class MywebviewActivity
     @wv.add_javascript_interface JSIRubySubJava.new,            "jsi_rubysubjava"
     @wv.add_javascript_interface JSIRuby.new.to_java,           "jsi_ruby_to_java"
     @wv.add_javascript_interface JSIRubySubJava.new.to_java,    "jsi_rubysubjava_to_java"
-    @wv.add_javascript_interface JSIJavaCustom.new,             "jsi_javacustom"
-    @wv.add_javascript_interface JSIJavaCustom.new.to_java,     "jsi_javacustom_to_java"
+    @wv.add_javascript_interface Java::NetIqeoMywebview::JsiJavaCustom.new, 'jsi'
 
     # Does not work...
     # .newInstance() causes java.lang.InstantiationException: class org.jruby.RubyObject has no zero argument constructor

@@ -8,9 +8,9 @@ import org.ruboto.Script;
 import org.ruboto.ScriptInfo;
 import org.ruboto.ScriptLoader;
 
-public class JSIJavaCustom extends java.lang.Object implements org.ruboto.RubotoComponent {
+public class JsiJavaCustom extends java.lang.Object implements org.ruboto.RubotoComponent {
 
-  public JSIJavaCustom() {
+  public JsiJavaCustom() {
     super();
   }
 
@@ -27,7 +27,7 @@ public class JSIJavaCustom extends java.lang.Object implements org.ruboto.Ruboto
   public java.lang.String ok() {
     if (ScriptLoader.isCalledFromJRuby()) return "oops! - ScriptLoader.isCalledFromJRuby()";
     if (!JRubyAdapter.isInitialized()) {
-      Log.i("Method called before JRuby runtime was initialized: JSIJavaCustom#ok");
+      Log.i("Method called before JRuby runtime was initialized: JsiJavaCustom#ok");
       return "oops! - !JRubyAdapter.isInitialized()"; 
     }
     String rubyClassName = scriptInfo.getRubyClassName();
